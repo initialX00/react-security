@@ -1,0 +1,79 @@
+새 윈도우에서 해당 폴더 선택, ...에서 뉴 터미널
+
+*프로젝트 생성 (최신버전 설치, 19버전)
+노드js가 설치된 상태에서 터미널에 npx create-react-app react_study 입력 후 엔터 - y
+
+npm 오류가 뜸
+(리액트 18에서 19로 넘어오면서 10.9.0버전 미지원하기에 18버전으로 다운그레이드, 19버전은 아직 문제가 많음)
+
+*18버전으로 다운그레이드
+폴더열기로 react-study로 이동 후 입력
+
+npm install react@18 react-dom@18 @testing-library/jest-dom@5.17.0 @testing-library/react@13.4.0 @testing-library/user-event@13.5.0 web-vitals
+=
+npm install react@18
+npm install react-dom@18
+npm install @testing-library/jest-dom@5.17.0
+npm install @testing-library/react@13.4.0
+npm install @testing-library/user-event@13.5.0
+npm install web-vitals
+
+
+*설치 확인
+설치 후 package.json (자바에서 pomx)에서
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "cra-template": "1.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^4.2.4"
+로 변경됐는지 확인
+
+
+
+*git 주의사항
+git에 node_modules 폴더가 제외되기때문에(고용량이라서 예외목록 등록됨)
+터미널에 npm install 입력하면 package.json에 등록된 라이브러리가 자동 설치된다.
+
+
+
+####설치 및 성정변경####
+$ npm install react-router-dom recoil react-query axios
+
+우측하단의 space를 클릭하여 탭사이즈 변경
+
+
+
+
+###인텔리제이 설정###
+ㅇ서버 살아있는지 체크해주는  라이브러리 
+pom.xml에서
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+application.yml에서
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health
+
+SecurityConfig에 "/actuator/health" 추가
+
+
+=> 스웨거랑 충돌나서 제거하기
+=> HealthCheckController클래스로 대체. SecurityConfig에 "/server/hc"
+
+
+
+
+ㅇ양식 불러오기
+react mui에서 참고
+npm install @mui/material @emotion/react @emotion/styled
