@@ -75,5 +75,18 @@ SecurityConfig에 "/actuator/health" 추가
 
 
 ㅇ양식 불러오기
-react mui에서 참고
+react mui - dos - Material UI에서 참고
 npm install @mui/material @emotion/react @emotion/styled
+
+
+
+ㅇjwt 읽기
+$ npm install jwt-decode
+
+
+ㅇ리액트쿼리 3버전에서 5버전으로 변경
+$ npm uninstall react-query
+$ npm i @tanstack/react-query
+임포트 싹다 고치기
+5버전부터는 객체로 입력. fn은funtion.
+

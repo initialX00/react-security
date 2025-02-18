@@ -3,13 +3,20 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { QueryClient, QueryClientProvider } from 'react-query';
 import { RecoilRoot } from 'recoil';
 import { BrowserRouter } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+    defaultOptions: { //기본 세팅 변경
+      queries: {
+        retry: 0,
+        refetchOnWindowFocus: false,
+      }
+    }
+});
 
 root.render(
   <QueryClientProvider client={queryClient} >

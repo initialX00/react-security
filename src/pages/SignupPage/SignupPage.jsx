@@ -59,7 +59,7 @@ function SignupPage(props) {
         try {
             await api.post("/api/auth/signup", signupInput);
             alert("회원가입 완료");
-            navigate("/signin");
+            navigate("/auth/signin");
         } catch(error) {
             setErrors({
                 username: error.response.data.data.username,
@@ -131,7 +131,7 @@ function SignupPage(props) {
                             <Button variant='contained' onClick={handleSignupButtonOnClick}>가입하기</Button>
                         </Box>
                         <Typography variant='h6' textAlign={'center'}>
-                            이미 계정이 있나요? <Link to={"/signin"}>로그인</Link>
+                            이미 계정이 있나요? <Link to={"/auth/signin"}>로그인</Link>
                         </Typography>
                     </CardContent>
                 </Card>
