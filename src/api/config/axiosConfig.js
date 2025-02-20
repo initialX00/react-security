@@ -20,3 +20,11 @@ export const setAccessToken = (token) => {
         localStorage.removeItem("AccessToken");
     }
 };
+
+export const setRefreshToken = (token) => {
+    if (!!token) {
+        localStorage.setItem("RefreshToken", token);
+    } else {
+        localStorage.removeItem("RefreshToken");
+    }
+};

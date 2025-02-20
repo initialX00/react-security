@@ -11,18 +11,18 @@ import { api } from "./api/config/axiosConfig.js";
 import MainHeader from "./components/MainHeader/MainHeader.jsx";
 
 function App() {
-	const navigate = useNavigate();
+	//const navigate = useNavigate();
 
-	const healthCheckQuery = useQuery({ //쿼리 3버전으로 업글함.쿼리 5버전부터는 객체로 입력. fn은funtion
-		queryKey: ["healthCheckQuery"], 
-		queryFn: healthCheckApi,
-		cacheTime: 1000 * 60 * 10, //캐시 유지 시간(언마운트 이후),
-		staleTime: 1000 * 60 * 10, //10분마다 최신의 캐시 상태 유지(refetch)
-	});
+	// const healthCheckQuery = useQuery({ //쿼리 3버전으로 업글함.쿼리 5버전부터는 객체로 입력. fn은funtion
+	// 	queryKey: ["healthCheckQuery"], 
+	// 	queryFn: healthCheckApi,
+	// 	cacheTime: 1000 * 60 * 10, //캐시 유지 시간(언마운트 이후),
+	// 	staleTime: 1000 * 60 * 10, //10분마다 최신의 캐시 상태 유지(refetch)
+	// });
 
-	if(!healthCheckQuery.isLoading) {
-		console.log(healthCheckQuery.data.data.status);
-	}
+	// if(!healthCheckQuery.isLoading) {
+	// 	console.log(healthCheckQuery.data.data.status);
+	// }
 
 	const userQuery = useQuery({
 		queryKey: ["userQuery"],
@@ -33,7 +33,7 @@ function App() {
 			}
 			const decodedJwt = jwtDecode(accessToken);
 			//console.log(decodedJwt);
-			return await userApi(decodedJwt.userId);
+			return await userApi(decodedJwt.jti);
 		}
 	});
 
